@@ -6,6 +6,7 @@ import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 
@@ -243,7 +244,7 @@ public final class TextUtil {
 
 
     public static String replace(String string, String search, String replacement) {
-        return FastUUID.JDK_9 ? string.replace(search, replacement) : StringUtils.replace(string, search, replacement);
+        return FastUUID.JDK_9 ? string.replace(search, replacement) : Strings.CS.replace(string, search, replacement);
     }
 
     // -------------------------------------------- //

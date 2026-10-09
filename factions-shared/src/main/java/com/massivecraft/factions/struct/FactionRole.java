@@ -167,7 +167,7 @@ public class FactionRole implements Permissable {
         String materialKey = "materials." + getTier().name().toLowerCase(Locale.ROOT);
         Material material = XMaterial.matchXMaterial(relationConfig.getString(materialKey, DEFAULT_MATERIAL))
                 .orElse(XMaterial.TERRACOTTA)
-                .parseMaterial();
+                .get();
         if (material == null) {
             return null;
         }

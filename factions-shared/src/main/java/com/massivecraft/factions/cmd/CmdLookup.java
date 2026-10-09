@@ -40,7 +40,7 @@ public class CmdLookup extends FCommand {
             Set<FLocation> locations = Board.getInstance().getAllClaims(faction);
             context.msg(TL.COMMAND_LOOKUP_CLAIM_COUNT, locations.size(), faction.getTag());
             for (FLocation flocation : locations) {
-                context.msg(TL.COMMAND_LOOKUP_CLAIM_LIST, flocation.getWorldName(), flocation.getX() * 16L, flocation.getZ() * 16L);
+                context.msg(TL.COMMAND_LOOKUP_CLAIM_LIST, flocation.getWorldName(), flocation.getIntX() * 16L, flocation.getIntZ() * 16L);
             }
         } else {
             context.msg(TL.COMMAND_LOOKUP_ONLY_NORMAL);

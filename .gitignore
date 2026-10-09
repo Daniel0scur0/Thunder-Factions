@@ -20,6 +20,11 @@
 /bin
 /dist
 /manifest.mf
+factions-folia/target
+factions-legacy/target
+factions-modern/target
+factions-plugin/target
+factions-shared/target
 
 /world
 
@@ -32,3 +37,6 @@
 *.ipr
 *.iws
 .idea/
+
+# VSCode local settings (set JDK 21 for compatibility)
+.vscode/

@@ -16,7 +16,7 @@ import org.saberdev.corex.CoreX;
 @CoreAddon(configVariable = "God-Apple-Cooldown")
 public class GappleCooldown implements Listener {
 
-    private final Lazy<Material> enchantedGoldenApple = Lazy.of(XMaterial.ENCHANTED_GOLDEN_APPLE::parseMaterial);
+    private final Lazy<Material> enchantedGoldenApple = Lazy.of(XMaterial.ENCHANTED_GOLDEN_APPLE::get);
 
     @EventHandler
     public void onEatGapple(PlayerItemConsumeEvent e){

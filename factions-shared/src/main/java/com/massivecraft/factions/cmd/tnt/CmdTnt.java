@@ -132,9 +132,9 @@ public class CmdTnt extends FCommand {
                 }
 
                 for (int i = 0; i <= fullStacks - 1; i++)
-                    context.player.getInventory().addItem(new ItemStack(XMaterial.TNT.parseMaterial(), 64));
+                    context.player.getInventory().addItem(new ItemStack(XMaterial.TNT.get(), 64));
                 if (remainderAmt != 0)
-                    context.player.getInventory().addItem(new ItemStack(XMaterial.TNT.parseMaterial(), remainderAmt));
+                    context.player.getInventory().addItem(new ItemStack(XMaterial.TNT.get(), remainderAmt));
 
                 context.faction.takeTnt(amount);
                 context.player.updateInventory();

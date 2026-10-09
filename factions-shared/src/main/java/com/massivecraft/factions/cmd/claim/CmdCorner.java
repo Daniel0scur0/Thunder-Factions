@@ -49,8 +49,8 @@ public class CmdCorner extends FCommand {
                 List<FLocation> surrounding = new ArrayList<>(400);
                 for (int x = 0; x < Conf.factionBufferSize; ++x) {
                     for (int z = 0; z < Conf.factionBufferSize; ++z) {
-                        int newX = (int) ((to.getX() > 0L) ? (to.getX() - x) : (to.getX() + x));
-                        int newZ = (int) ((to.getZ() > 0L) ? (to.getZ() - z) : (to.getZ() + z));
+                        int newX = (int) ((to.getIntX() > 0L) ? (to.getIntX() - x) : (to.getIntX() + x));
+                        int newZ = (int) ((to.getIntZ() > 0L) ? (to.getIntZ() - z) : (to.getIntZ() + z));
                         FLocation location = FLocation.wrap(context.player.getWorld().getName(), newX, newZ);
                         Faction at = Board.getInstance().getFactionAt(location);
                         if (at == null || !at.isNormal()) {

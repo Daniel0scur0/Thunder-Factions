@@ -13,7 +13,7 @@
     <artifactId>factions-folia</artifactId>
     <packaging>jar</packaging>
 
-    <name>SaberFactions Folia</name>
+    <name>ThunderFactions Folia</name>
 
     <dependencies>
         <dependency>

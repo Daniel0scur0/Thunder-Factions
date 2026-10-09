@@ -131,7 +131,7 @@ public enum Role implements Permissable {
                 RELATION_CONFIG.getString("placeholder-item.name", "")));
         List<String> lore = new ArrayList<>();
 
-        Material material = XMaterial.matchXMaterial(RELATION_CONFIG.getString("materials." + name().toLowerCase(), "STAINED_CLAY")).orElse(XMaterial.TERRACOTTA).parseMaterial();
+        Material material = XMaterial.matchXMaterial(RELATION_CONFIG.getString("materials." + name().toLowerCase(), "STAINED_CLAY")).orElse(XMaterial.TERRACOTTA).get();
         if (material == null) {
             return null;
         }

@@ -40,9 +40,9 @@ public class CmdSeeChunk extends FCommand {
 
     public CmdSeeChunk() {
         super();
-        air = XMaterial.AIR.parseMaterial();
-        redstoneLamp = XMaterial.REDSTONE_LAMP.parseMaterial();
-        blackStainedGlass = XMaterial.BLACK_STAINED_GLASS.parseMaterial();
+        air = XMaterial.AIR.get();
+        redstoneLamp = XMaterial.REDSTONE_LAMP.get();
+        blackStainedGlass = XMaterial.BLACK_STAINED_GLASS.get();
 
         getAliases().addAll(Aliases.seeChunk);
 

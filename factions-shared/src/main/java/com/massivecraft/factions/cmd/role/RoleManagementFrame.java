@@ -246,9 +246,9 @@ public class RoleManagementFrame extends SaberGUI {
     }
 
     private static Material material(XMaterial primary, XMaterial fallback) {
-        Material material = primary == null ? null : primary.parseMaterial();
+        Material material = primary == null ? null : primary.get();
         if (material == null && fallback != null) {
-            material = fallback.parseMaterial();
+            material = fallback.get();
         }
         return material == null ? Material.STONE : material;
     }
@@ -337,7 +337,7 @@ public class RoleManagementFrame extends SaberGUI {
             if (configuredMaterial != null && !configuredMaterial.trim().isEmpty()) {
                 Material configured = XMaterial.matchXMaterial(configuredMaterial)
                         .orElse(XMaterial.STONE)
-                        .parseMaterial();
+                        .get();
                 if (configured != null) {
                     material = configured;
                 }

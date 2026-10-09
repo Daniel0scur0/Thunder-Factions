@@ -13,7 +13,7 @@ public class SpawnerChunkListener implements Listener {
 
     @EventHandler
     public void onSpawnerPlace(BlockPlaceEvent e) {
-        if (e.getBlockPlaced().getType() == XMaterial.SPAWNER.parseMaterial()) {
+        if (e.getBlockPlaced().getType() == XMaterial.SPAWNER.get()) {
             Location location = e.getBlockPlaced().getLocation();
             FastChunk fastChunk = new FastChunk(location.getWorld().getName(), location.getChunk().getX(), location.getChunk().getZ());
             FLocation fLoc = FLocation.wrap(location);

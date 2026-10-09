@@ -129,7 +129,7 @@ public class UpgradesListener implements Listener {
 
     private void growCrop(BlockGrowEvent e) {
         Material blockType = e.getBlock().getType();
-        if (blockType == XMaterial.WHEAT.parseMaterial()) {
+        if (blockType == XMaterial.WHEAT.get()) {
             e.setCancelled(true);
             ripen(e.getBlock());
             return;
@@ -139,10 +139,10 @@ public class UpgradesListener implements Listener {
         Block below = e.getBlock().getRelative(BlockFace.DOWN);
         Block above = e.getBlock().getRelative(BlockFace.UP);
 
-        if (below.getType() == XMaterial.SUGAR_CANE.parseMaterial()) {
+        if (below.getType() == XMaterial.SUGAR_CANE.get()) {
             Block twoBelow = below.getRelative(BlockFace.DOWN);
             if (above.getType() == Material.AIR && twoBelow.getType() != Material.AIR) {
-                above.setType(XMaterial.SUGAR_CANE.parseMaterial());
+                above.setType(XMaterial.SUGAR_CANE.get());
             }
         } else if (below.getType() == Material.CACTUS) {
             Block twoBelow = below.getRelative(BlockFace.DOWN);

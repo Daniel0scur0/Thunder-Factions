@@ -19,7 +19,7 @@ import org.saberdev.corex.CoreX;
 @CoreAddon(configVariable = "Enemy-Spawner-Mine")
 public class EnemySpawnerMine implements Listener {
 
-    private final Lazy<Material> spawner = Lazy.of(XMaterial.SPAWNER::parseMaterial);
+    private final Lazy<Material> spawner = Lazy.of(XMaterial.SPAWNER::get);
 
     @EventHandler
     public void onSpawnerMine(BlockBreakEvent e) {

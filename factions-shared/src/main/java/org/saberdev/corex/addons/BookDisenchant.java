@@ -26,7 +26,7 @@ public class BookDisenchant implements Listener {
     public void onPlayerInteract(PlayerInteractEvent event) {
         if ((event.getAction() == Action.LEFT_CLICK_BLOCK) && (event.hasItem())) {
             Player player = event.getPlayer();
-            if ((event.getClickedBlock().getType() == XMaterial.ENCHANTING_TABLE.parseMaterial()) && (player.getGameMode() != GameMode.CREATIVE)) {
+            if ((event.getClickedBlock().getType() == XMaterial.ENCHANTING_TABLE.get()) && (player.getGameMode() != GameMode.CREATIVE)) {
                 ItemStack stack = event.getItem();
                 if ((stack != null) && (stack.getType() == Material.ENCHANTED_BOOK)) {
                     ItemMeta meta = stack.getItemMeta();

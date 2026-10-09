@@ -13,7 +13,7 @@ import org.saberdev.corex.CoreAddon;
 @CoreAddon(configVariable = "Anti-Book-Quill-Crash")
 public class AntiBookQuillCrash implements Listener {
 
-    private static final Material WRITTABLE_BOOK = XMaterial.WRITABLE_BOOK.parseMaterial();
+    private static final Material WRITTABLE_BOOK = XMaterial.WRITABLE_BOOK.get();
 
     @EventHandler
     public void onAttemptCrash(PlayerInteractEvent event) {

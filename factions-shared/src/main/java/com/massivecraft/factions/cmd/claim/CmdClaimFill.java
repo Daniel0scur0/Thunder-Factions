@@ -76,8 +76,8 @@ public class CmdClaimFill extends FCommand {
         }
 
         final double distance = Conf.maxFillClaimDistance;
-        long startX = loc.getX();
-        long startZ = loc.getZ();
+        long startX = loc.getIntX();
+        long startZ = loc.getIntZ();
 
         Set<FLocation> toClaim = new LinkedHashSet<>();
         Queue<FLocation> queue = new LinkedList<>();
@@ -87,7 +87,7 @@ public class CmdClaimFill extends FCommand {
         while (!queue.isEmpty() && toClaim.size() <= limit) {
             currentHead = queue.poll();
 
-            if (Math.abs(currentHead.getX() - startX) > distance || Math.abs(currentHead.getZ() - startZ) > distance) {
+            if (Math.abs(currentHead.getIntX() - startX) > distance || Math.abs(currentHead.getIntZ() - startZ) > distance) {
                 context.msg(TL.COMMAND_CLAIMFILL_TOOFAR, distance);
                 return;
             }

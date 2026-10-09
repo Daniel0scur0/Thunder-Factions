@@ -90,7 +90,7 @@ public class FactionsPlayerListener implements Listener {
     }
 
     public static boolean playerCanUseItemHere(Player player, Location location, Material material, boolean justCheck, PermissableAction permissableAction) {
-        material = XMaterial.matchXMaterial(material).parseMaterial();
+        material = XMaterial.matchXMaterial(material).get();
 
         if (Conf.playersWhoBypassAllProtection.contains(player.getName())) {
             return true;
@@ -567,13 +567,13 @@ public class FactionsPlayerListener implements Listener {
         if (block == null)
             return;
         if (event.getItem() != null) {
-            type = XMaterial.matchXMaterial(event.getItem().getType().toString()).get().parseMaterial();
+            type = XMaterial.matchXMaterial(event.getItem().getType().toString()).get().get();
         } else {
             type = null;
         }
 
         // Allow creeper egging chests
-        if (Conf.allowCreeperEggingChests && (block.getType() == XMaterial.CHEST.parseMaterial() || block.getType() == XMaterial.TRAPPED_CHEST.parseMaterial()) && type == XMaterial.CREEPER_SPAWN_EGG.parseMaterial() && event.getPlayer().isSneaking())
+        if (Conf.allowCreeperEggingChests && (block.getType() == XMaterial.CHEST.get() || block.getType() == XMaterial.TRAPPED_CHEST.get()) && type == XMaterial.CREEPER_SPAWN_EGG.get() && event.getPlayer().isSneaking())
             return;
 
         // Allow interaction with blocks that bypass protection
@@ -623,8 +623,8 @@ public class FactionsPlayerListener implements Listener {
     @EventHandler
     public void onPlayerBoneMeal(PlayerInteractEvent event) {
         Block block = event.getClickedBlock();
-        if (event.getAction() == Action.RIGHT_CLICK_BLOCK && block.getType() == XMaterial.GRASS_BLOCK.parseMaterial()
-                && event.hasItem() && event.getItem().getType() == XMaterial.BONE_MEAL.parseMaterial()) {
+        if (event.getAction() == Action.RIGHT_CLICK_BLOCK && block.getType() == XMaterial.GRASS_BLOCK.get()
+                && event.hasItem() && event.getItem().getType() == XMaterial.BONE_MEAL.get()) {
             if (!FactionsBlockListener.playerCanBuildDestroyBlock(event.getPlayer(), block.getLocation(), "build", true)) {
                 FPlayer me = FPlayers.getInstance().getById(event.getPlayer().getUniqueId().toString());
                 Faction myFaction = me.getFaction();

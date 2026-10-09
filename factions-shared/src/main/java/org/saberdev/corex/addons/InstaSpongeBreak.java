@@ -15,7 +15,7 @@ import org.saberdev.corex.CoreAddon;
 @CoreAddon(configVariable = "Insta-Sponge-Break")
 public class InstaSpongeBreak implements Listener {
 
-    private final Lazy<Material> sponge = Lazy.of(XMaterial.SPONGE::parseMaterial);
+    private final Lazy<Material> sponge = Lazy.of(XMaterial.SPONGE::get);
 
     @EventHandler
     public void onClick(PlayerInteractEvent event) {

@@ -29,14 +29,14 @@ public class AntiDupe implements Listener {
             Block headLocation = player.getEyeLocation().getBlock();
             if (headLocation != null) {
                 Material type = headLocation.getType();
-                if (type == XMaterial.LILY_PAD.parseMaterial() || type.name().contains("TRAPDOOR")) {
+                if (type == XMaterial.LILY_PAD.get() || type.name().contains("TRAPDOOR")) {
                     event.setCancelled(true);
                 }
             }
             Block bodyLocation = player.getLocation().getBlock();
             if (bodyLocation != null) {
                 Material type = bodyLocation.getType();
-                if (type == XMaterial.LILY_PAD.parseMaterial() || type.name().contains("TRAPDOOR")) {
+                if (type == XMaterial.LILY_PAD.get() || type.name().contains("TRAPDOOR")) {
                     event.setCancelled(true);
                 }
             }

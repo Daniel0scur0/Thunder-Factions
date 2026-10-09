@@ -13,7 +13,7 @@
     <artifactId>factions-shared</artifactId>
     <packaging>jar</packaging>
 
-    <name>SaberFactions Shared</name>
+    <name>ThunderFactions Shared</name>
 
     <build>
         <resources>
@@ -76,7 +76,7 @@
         <dependency>
             <groupId>com.github.cryptomorin</groupId>
             <artifactId>XSeries</artifactId>
-            <version>13.7.0</version>
+            <version>13.7.1</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -106,18 +106,6 @@
                 <exclusion>
                     <artifactId>bukkit</artifactId>
                     <groupId>org.bukkit</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>be.maximvdw</groupId>
-            <artifactId>MVdWPlaceholderAPI</artifactId>
-            <version>3.1.1-SNAPSHOT</version>
-            <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.spigotmc</groupId>
-                    <artifactId>spigot</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>

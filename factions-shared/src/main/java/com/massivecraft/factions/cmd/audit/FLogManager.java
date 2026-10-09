@@ -708,7 +708,7 @@ public class FLogManager {
             try {
                 XMaterial xMaterial = XMaterial.matchXMaterial(name).orElse(null);
                 if (xMaterial != null) {
-                    Material parsed = xMaterial.parseMaterial();
+                    Material parsed = xMaterial.get();
                     if (parsed != null) {
                         return parsed;
                     }
