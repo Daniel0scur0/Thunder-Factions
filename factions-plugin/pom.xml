@@ -13,7 +13,7 @@
     <artifactId>factions-plugin</artifactId>
     <packaging>jar</packaging>
 
-    <name>SaberFactions Plugin</name>
+    <name>ThunderFactions Plugin</name>
 
     <dependencies>
         <dependency>
@@ -24,11 +24,6 @@
         <dependency>
             <groupId>com.massivecraft</groupId>
             <artifactId>factions-modern</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.massivecraft</groupId>
-            <artifactId>factions-legacy</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
