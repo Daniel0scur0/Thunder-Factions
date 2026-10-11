@@ -2,7 +2,7 @@ package com.massivecraft.factions.compat.modern;
 
 import com.massivecraft.factions.compat.CompatibilityContext;
 import com.massivecraft.factions.compat.CompatibilityModule;
-import com.massivecraft.factions.listeners.vspecific.ChorusFruitListener;
+import com.massivecraft.factions.listeners.vspecific.ConsumableListener;
 import com.massivecraft.factions.missions.impl.MissionHandlerModern;
 import me.lucko.commodore.CommodoreProvider;
 
@@ -31,7 +31,7 @@ public final class ModernCompatibilityModule implements CompatibilityModule {
     @Override
     public void onEnable(CompatibilityContext context) {
         if (context.getPlugin().getConfig().getBoolean("disable-chorus-teleport-in-territory", true)) {
-            context.registerListener(new ChorusFruitListener());
+            context.registerListener(new ConsumableListener());
         }
 
         context.registerListener(new MissionHandlerModern());

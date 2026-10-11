@@ -187,7 +187,10 @@ public class FactionsPlugin extends MPlugin {
             return;
         }
 
-        this.version = Short.parseShort(ReflectionUtils.PackageType.getServerVersion().split("_")[1]);
+        String minecraftVersion = Bukkit.getMinecraftVersion();
+        this.version = Short.parseShort(
+            minecraftVersion.split("\\.")[1]
+        );
 
         if (!preEnable()) {
             this.loadSuccessful = false;
@@ -202,8 +205,6 @@ public class FactionsPlugin extends MPlugin {
             if (getConfig().getBoolean("enable-faction-flight", true)) {
                 FactionsPlugin.getScheduler().runGlobalRepeating(30L, 30L, new FlightEnhance());
             }
-
-            VersionProtocol.printVersionInfo();
             this.compatibilityModule = CompatibilityBootstrap.select(this.version);
             // Add Base Commands
             this.cmdBase = new FCmdRoot();

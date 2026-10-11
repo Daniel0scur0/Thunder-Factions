@@ -21,7 +21,6 @@
 /dist
 /manifest.mf
 factions-folia/target
-factions-legacy/target
 factions-modern/target
 factions-plugin/target
 factions-shared/target
@@ -38,5 +37,5 @@ factions-shared/target
 *.iws
 .idea/
 
-# VSCode local settings (set JDK 21 for compatibility)
+# VSCode local settings (set JDK 25 for building folia)
 .vscode/

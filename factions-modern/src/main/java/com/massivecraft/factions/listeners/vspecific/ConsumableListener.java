@@ -10,12 +10,12 @@ import org.bukkit.event.player.PlayerTeleportEvent;
  * @Author: Driftay
  * @Date: 1/23/2022 3:19 PM
  */
-public class ChorusFruitListener implements Listener {
+public class ConsumableListener implements Listener {
 
     @EventHandler
-    public void onChorusTeleport(PlayerTeleportEvent event){
+    public void onConsumableTeleport(PlayerTeleportEvent event){
         if(!FactionsPlugin.instance.getConfig().getBoolean("disable-chorus-teleport-in-territory", true))return;
-        if (event.getCause() == PlayerTeleportEvent.TeleportCause.CHORUS_FRUIT) {
+        if (event.getCause() == PlayerTeleportEvent.TeleportCause.CONSUMABLE_EFFECT) {
             if(event.getTo() == null )return;
             Faction fac = Board.getInstance().getFactionAt(FLocation.wrap(event.getTo()));
             FPlayer fplayer = FPlayers.getInstance().getByPlayer(event.getPlayer());

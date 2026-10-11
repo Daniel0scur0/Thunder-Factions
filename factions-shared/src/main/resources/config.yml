@@ -169,7 +169,7 @@ scoreboard:
   ##################### SCOREBOARD #####################
   ######################################################
   default-enabled: false # This is to enable or disable the scoreboard: false = Disabled
-  default-title: "&cSaberFactions" # Can use any of the values from above but this won't update once it's set (so don't set {balance}).
+  default-title: "&cThunderFactions" # Can use any of the values from above but this won't update once it's set (so don't set {balance}).
   default-update-interval: 2 # in seconds.
   # This will show faction prefixes colored based on relation on name-tags and in the tab.
   #   The scoreboard needs to be enabled for this to work.

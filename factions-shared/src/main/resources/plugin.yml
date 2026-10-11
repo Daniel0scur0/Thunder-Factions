@@ -1,10 +1,10 @@
 name: Factions
-prefix: SaberFactions
+prefix: ThunderFactions
 version: ${project.version}
 api-version: 1.13
 folia-supported: true
 main: com.massivecraft.factions.FactionsPlugin
-authors: [Olof Larsson, Brett Flannigan, drtshock, ProSavage, DroppingAnvil, Driftay, SaberDev, Callum, Atilt]
+authors: [Olof Larsson, Brett Flannigan, drtshock, ProSavage, DroppingAnvil, Driftay, SaberDev, Callum, Atilt, Daniel0scur0]
 depend: [Vault]
 softdepend: [Citizens, CoreProtect, PlayerVaults, PlaceholderAPI, MVdWPlaceholderAPI, PermissionsEx, Permissions, Essentials, EssentialsChat, HeroChat, iChat, LocalAreaChat, LWC, nChat, ChatManager, CAPI, AuthMe, Vault, Spout, WorldEdit, WorldGuard, AuthDB, CaptureThePoints, CombatTag, dynmap, WildStacker, Multiverse-Core, MultiWorld, Impact]
 commands:

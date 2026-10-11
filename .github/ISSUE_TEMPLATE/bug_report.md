@@ -7,6 +7,9 @@ assignees: ''
 
 ---
 
+**IMPORTANT**
+Try to replicate the bug with SaberFactions on the same configuration, and if it happens there too, report to SaberFactions, not to ThunderFactions!
+
 **Describe the bug**
 A clear and concise description of what the bug is.
 
@@ -24,7 +27,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Server Version (please complete the following information):**
- - Spigot Version: [e.g. Paperspigot 1.8.8]
+ - Paper Version: [e.g. Paper 1.20.4]
  - Factions Version [use /f version]
  - Minecraft Version: [If a bug is dependent on client version]
 
