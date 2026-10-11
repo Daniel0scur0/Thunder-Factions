@@ -19,7 +19,7 @@ public class CmdDebug extends FCommand {
         Logger.print("-------Main-------", Logger.PrefixType.DEBUG);
         Logger.print("Server Version: " + FactionsPlugin.getInstance().getServer().getVersion(), Logger.PrefixType.DEBUG);
         Logger.print("Server Bukkit Version: " + FactionsPlugin.getInstance().getServer().getBukkitVersion(), Logger.PrefixType.DEBUG);
-        Logger.print("SaberFactions Version: " + FactionsPlugin.getInstance().getDescription().getVersion(), Logger.PrefixType.DEBUG);
+        Logger.print("ThunderFactions Version: " + FactionsPlugin.getInstance().getDescription().getVersion(), Logger.PrefixType.DEBUG);
         Logger.print("Is Beta Version: " + (FactionsPlugin.getInstance().getDescription().getFullName().contains("BETA") ? "True" : "False"), Logger.PrefixType.DEBUG);
         Logger.print("Players Online: " + Bukkit.getOnlinePlayers().size(), Logger.PrefixType.DEBUG);
         Logger.print("------Command------", Logger.PrefixType.DEBUG);

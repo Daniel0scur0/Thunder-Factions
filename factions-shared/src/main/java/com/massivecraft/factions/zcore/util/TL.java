@@ -1174,7 +1174,7 @@ public enum TL {
     COMMAND_UNCLAIMFILL_UNCLAIMED("%1$s&e unclaimed %d claims of your faction's land around %s."),
     COMMAND_UNCLAIMFILL_BYPASSCOMPLETE("&eUnclaimed %d claims."),
 
-    COMMAND_VERSION_NAME("&c&l[!]&7 &c&k||| &r&4SaberFactions&7 &c&k|||&r &c» &7By Driftay"),
+    COMMAND_VERSION_NAME("&c&l[!]&7 &c&k||| &r&4ThunderFactions&7 &c&k|||&r &c» &7By Daniel0scur0"),
     COMMAND_VERSION_VERSION("&7Version &c» &7%1$s"),
     COMMAND_VERSION_DESCRIPTION("Show plugin and translation version information"),
 

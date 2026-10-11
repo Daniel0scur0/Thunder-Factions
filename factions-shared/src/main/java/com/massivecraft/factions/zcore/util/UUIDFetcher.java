@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
@@ -99,7 +100,7 @@ public class UUIDFetcher {
         }
 
         private HttpURLConnection createConnection() throws IOException {
-            URL url = new URL(PROFILE_URL);
+            URL url = URI.create(PROFILE_URL).toURL();
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json");

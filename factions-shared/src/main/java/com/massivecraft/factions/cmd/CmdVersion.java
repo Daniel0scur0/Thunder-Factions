@@ -22,7 +22,7 @@ public class CmdVersion extends FCommand {
 
     @Override
     public void perform(CommandContext context) {
-        context.msg(TextUtil.parse("&c&l[!]&7 &c&k||| &r&4SaberFactions&7 &c&k|||&r &c» &7By Driftay")); // Did this so people can differentiate between SavageFactions and FactionsUUID (( Requested Feature ))
+        context.msg(TextUtil.parse("&c&l[!]&7 &c&k||| &r&9ThunderFactions&7 &c&k|||&r &c» &7By Daniel0scur0")); // Did this so people can differentiate between SavageFactions and FactionsUUID (( Requested Feature ))
         context.msg(TL.COMMAND_VERSION_VERSION, FactionsPlugin.getInstance().getDescription().getFullName());
     }
 

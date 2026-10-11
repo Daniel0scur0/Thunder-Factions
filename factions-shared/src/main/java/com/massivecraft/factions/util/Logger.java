@@ -23,14 +23,14 @@ public class Logger {
         DEBUG(ChatColor.YELLOW + "DEBUG: "),
         WARNING(ChatColor.RED + "WARNING: "),
         NONE(""),
-        DEFAULT(ChatColor.GOLD.toString()),
-        HEADLINE(ChatColor.GOLD + ""),
+        DEFAULT(ChatColor.BLUE.toString()),
+        HEADLINE(ChatColor.BLUE + ""),
         FAILED(ChatColor.RED + "FAILED: ");
 
         private final String prefix;
 
         PrefixType(String prefix) {
-            this.prefix = ChatColor.GOLD + "[SaberFactions] " + prefix;
+            this.prefix = ChatColor.DARK_BLUE + "[ThunderFactions] " + prefix;
         }
 
         public String getPrefix() {

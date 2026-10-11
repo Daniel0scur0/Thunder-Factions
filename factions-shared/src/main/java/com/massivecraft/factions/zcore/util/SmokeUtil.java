@@ -32,7 +32,7 @@ public class SmokeUtil {
     // Single ========
     public static void spawnSingle(Location location, int direction) {
         if (location == null) return;
-        location.getWorld().playEffect(location.clone(), Effect.SMOKE, direction);
+        location.getWorld().playEffect(location.clone(), Effect.SMOKE_SHOOT, direction);
     }
 
     public static void spawnSingle(Location location) {

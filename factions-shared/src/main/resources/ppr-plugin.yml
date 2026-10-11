@@ -1,0 +1,17 @@
+# TODO paper-plugin.yml
+name: ThunderFactions
+version: ${project.version}
+main: com.massivecraft.factions.FactionsPlugin
+description: A modernized SaberFactions fork
+api-version: '26.2'
+dependencies:
+  server:
+    Vault:
+      load: BEFORE
+      required: true
+    PlaceholderAPI:
+      load: BEFORE
+      required: false
+    Essentials:
+      load: BEFORE
+      required: false
