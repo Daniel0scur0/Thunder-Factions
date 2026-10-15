@@ -48,20 +48,39 @@ public class CmdShow extends FCommand {
                 .build());
     }
 
+    private void debug(String message) {
+        if (FactionsPlugin.getInstance().getConfig().getBoolean("debug", false)) {
+            FactionsPlugin.getInstance().getLogger().info("[CmdShow] " + message);
+        }
+    }
+
     @Override
     public void perform(CommandContext context) {
+        debug("Command received");
+
         Faction faction = context.faction;
         if (context.argIsSet(0)) faction = context.argAsFaction(0);
-        if (faction == null) return;
+        if (faction == null) {
+            debug("interruption: faction is null");
+            return;
+        }
+        debug("Initial check passed");
 
         if (context.fPlayer != null && !context.player.getPlayer().hasPermission("factions.show.bypassexempt")
                 && FactionsPlugin.getInstance().getConfig().getStringList("show-exempt").contains(faction.getTag())) {
+                debug("interruption: the faction is present in show-exempt");
             context.msg(TL.COMMAND_SHOW_EXEMPT);
             return;
         }
 
+        debug("Selected Faction: " + faction.getTag());
+
         // if economy is enabled, they're not on the bypass list, and this command has a cost set, make 'em pay
-        if (!context.payForCommand(Conf.econCostShow, TL.COMMAND_SHOW_TOSHOW, TL.COMMAND_SHOW_FORSHOW)) {
+        if (!context.payForCommand(
+                Conf.econCostShow,
+                TL.COMMAND_SHOW_TOSHOW,
+                TL.COMMAND_SHOW_FORSHOW)) {
+            debug("interruption: payForCommand returned false");
             return;
         }
 
@@ -81,40 +100,73 @@ public class CmdShow extends FCommand {
             return; // we only show header for non-normal factions
         }
 
-        List<Component> fancy = new ArrayList<>(16);
         List<String> finalShow = show;
         Faction finalFaction = faction;
+
+        debug("Starting process async tasks");
+
         FactionsPlugin.getScheduler().runAsync(() -> {
-            for (String raw : finalShow) {
-                String parsed = FactionsPlugin.getInstance().getConfig().getBoolean("relational-show", true) ? TagUtil.parsePlain(finalFaction, context.fPlayer, raw) : TagUtil.parsePlain(finalFaction, raw); // use relations
-                if (parsed == null) {
-                    continue; // Due to minimal f show.
-                }
+            try {
+                debug("Begin of the async task");
 
-                if (context.fPlayer != null) {
-                    parsed = TagUtil.parsePlaceholders(context.fPlayer.getPlayer(), parsed);
-                }
+                List<Component> fancy = new ArrayList<>(16);
 
-                if (TagUtil.hasFancy(parsed)) {
-                    List<Component> localFancy = TagUtil.parseFancy(finalFaction, context.fPlayer, parsed);
-                    if (localFancy != null)
-                        fancy.addAll(localFancy);
-                    continue;
-                }
-                if (!parsed.contains("{notFrozen}") && !parsed.contains("{notPermanent}")) {
-                    if (parsed.contains("{ig}")) {
-                        parsed = parsed.substring(0, parsed.indexOf("{ig}")) + TL.COMMAND_SHOW_NOHOME;
-                    }
-                    if (parsed.contains("%")) {
-                        parsed = parsed.replaceAll("%", "");
+                for (String raw : finalShow) {
+
+                    debug("Processing row: " + raw);
+                    
+                    String parsed = FactionsPlugin.getInstance().getConfig().getBoolean("relational-show", true) ? TagUtil.parsePlain(finalFaction, context.fPlayer, raw) : TagUtil.parsePlain(finalFaction, raw); // use relations
+                    if (parsed == null) {
+                        debug("Row skipped because parsed result is null");
+                        continue; // Due to minimal f show.
                     }
 
-                    parsed = TextUtil.parse(parsed);
-                    Component localFancy = TextUtil.parseFancy(parsed).build();
-                    fancy.add(localFancy);
+                    if (context.fPlayer != null) {
+                        parsed = TagUtil.parsePlaceholders(context.fPlayer.getPlayer(), parsed);
+                    }
+
+                    if (TagUtil.hasFancy(parsed)) {
+                        List<Component> localFancy = TagUtil.parseFancy(finalFaction, context.fPlayer, parsed);
+                        if (localFancy != null)
+                            fancy.addAll(localFancy);
+                        continue;
+                    }
+                    if (!parsed.contains("{notFrozen}") && !parsed.contains("{notPermanent}")) {
+                        if (parsed.contains("{ig}")) {
+                            parsed = parsed.substring(0, parsed.indexOf("{ig}")) + TL.COMMAND_SHOW_NOHOME;
+                        }
+                        if (parsed.contains("%")) {
+                            parsed = parsed.replaceAll("%", "");
+                        }
+
+                        parsed = TextUtil.parse(parsed);
+                        Component localFancy = TextUtil.parseFancy(parsed).build();
+                        fancy.add(localFancy);
+                    }
                 }
+                
+                debug("Produced components: " + fancy.size());
+                
+                FactionsPlugin.getScheduler().runGlobal(() -> {
+                    try {
+                        debug("Sending components");
+                        context.sendComponent(fancy);
+                        debug("Components sent successfully");
+                    } catch (Throwable throwable) {
+                        FactionsPlugin.getInstance().getLogger().log(
+                                java.util.logging.Level.SEVERE,
+                                "Error sending /f show components",
+                                throwable
+                        );
+                    }
+                });
+            } catch (Throwable throwable) {
+                FactionsPlugin.getInstance().getLogger().log(
+                        java.util.logging.Level.SEVERE,
+                        "Error processing /f show asynchronously",
+                        throwable
+                );
             }
-            FactionsPlugin.getScheduler().runGlobal(() -> context.sendComponent(fancy));
         });
     }
 
